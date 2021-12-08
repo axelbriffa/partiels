@@ -1,4 +1,4 @@
-# Partiels axel briffa
+# Partiels Axel Briffa
 
 ## Ceci est le dossier de développement du partiel de décembre 2021.
 
@@ -22,7 +22,15 @@ Il vous suffit de cloner sur git bash la clé SSH que vous pouvez retrouver dans
 
 Ou alors vous pouvez télécharger le fichier en hors-ligne en .zip
 
-## Apporter des modifications
+## Logiciels requis et prérequis pour effectuer des modifications
+
+- Avoir installé une clé SSH sur son pc
+- Un éditeur de code
+- Git bash 
+- Node JS
+- Koala (pour synchroniser le scss et le css)
+
+## Apporter des modifications sur le repository en ligne
 
 - git add nom_du_fichier ou nom_du_dossier/
 - git status (pour vérifier qu'il n'apparaît plus dans votre repository ou qu'il apparaît en vert)
@@ -45,3 +53,4 @@ Ou alors vous pouvez télécharger le fichier en hors-ligne en .zip
 - Chat en ligne
 - Mise en ligne de NFTs
 - Connexion à son compte
+
