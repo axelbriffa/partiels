@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>NfTapes</title>
+    <link rel="stylesheet" href="css/all.min.css"/>
+	<link rel="stylesheet" href="css/main.min.css"/>
+	<link rel="icon" type="image/png" href="img/favicon.png"/>
+	<script src="js/jquery-3.5.1.min.js"></script>
+	<script src="https://kit.fontawesome.com/6a2a689f4d.js" crossorigin="anonymous"></script>
+	<script>
+        //trouvé sur internet, c'est une variable pour un scroll fluide
+		$(function(){
+			var smoothScroll = {
+				speed: 0,
+				delay: 5, // en ms
+				timer: null,
+				scrollSpeed: 4,
+				inertia: 0.95,
+				init: function(){
+					this.setEventsListeners();
+				},
+				setEventsListeners: function(){
+					var me = this;
+					$(document).bind('DOMMouseScroll mousewheel', function(e){
+						me.setSpeed(e.originalEvent);
+					});
+				},
+				setSpeed: function(e){
+					console.log(e);
+					this.speed += e.wheelDelta < 0 ? -this.scrollSpeed : this.scrollSpeed;
+					if(this.timer == null){
+						this.timer = setTimeout(this.smoothScroll, this.delay, this); 
+					}
+					e.preventDefault();
+				},
+				smoothScroll: function(scope){
+					var self = scope;
+					self.speed *= self.inertia;
+
+					window.scrollTo(0, window.scrollY - self.speed );
+
+					if(self.speed < self.inertia && self.speed > -self.inertia){
+						self.speed = 0;
+						clearTimeout(self.timer);
+						self.timer = null;
+					}else{
+						self.timer = setTimeout(self.smoothScroll, self.delay, self);
+					}
+				}
+			}
+			smoothScroll.init();
+		});
+    </script>
+</head>
+<body>
+    <!-- header de la page --> 
+    <header>
+		<figure>
+			<a href="index.html"><img src="img/favicon.png" alt="icon"></a>
+		</figure>
+		<nav>
+		<div class="searchbar">
+			<i class="fas fa-search"></i>
+			<p>Rechercher...</p>
+		</div>
+		
+			<a href="#">Marketplace</a>
+			<a href="#">A propos</a>
+			<a href="#">Créer votre NFT</a>
+		
+		<div class="user">
+			<a href="#"><i class="fas fa-user"></i></a>
+			<a href="#"><i class="fas fa-wallet"></i></a>
+		</div>
+	</nav>
+		
+	</header>
+    <!-- corps de la page --> 
+<div class="mkp">
+    <p class="fil">
+       Accueil > Marketplace
+    </p>
+    <h1>
+        Marketplace
+    </h1>
+    <!-- filtres et tris --> 
+    <div class="upp">
+        <div class="filtre">
+            <p>
+                Filtrer par prix
+                
+            </p>
+                <div class="container">
+                    <div class="min">
+                        <p>
+                            Minimum
+                        </p>
+                    </div>
+                    <div class="max">
+                        <p>
+                            Maximum
+                        </p>
+                    </div>
+                    <button>
+                        Filtrer
+                    </button>
+                </div>
+            </div>
+
+        <div class="tri">
+            <p>
+                Trier
+                
+            </p>
+                <div class="container">
+                    <div class="artiste">
+                        <p>
+                            Artiste
+                        </p>
+                    </div>
+                    <div class="style">
+                        <p>
+                            Style musical
+                        </p>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="date">
+                        <p>
+                            Date d'ajout
+                        </p>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <button>
+                        Trier
+                    </button>
+                </div>
+
+        </div>
+    </div>    
+
+    <h2>
+        Derniers ajouts
+    </h2>
+    <!-- nfts en vente --> 
+    <section class="nfts">
+        <div class="un">
+            <figure>
+                <img src="img/orelsan.png" alt="nft-orelsan">
+            </figure>
+
+            <figure>
+                <img src="img/laylow.png" alt="nft-laylow">
+            </figure>
+
+            <figure>
+                <img src="img/clouds.png" alt="nft-clouds">
+            </figure>
+        </div>
+        <div class="deux">    
+            <figure>
+                <img src="img/vald.png" alt="nft-vald">
+            </figure>
+
+            <figure>
+                <img src="img/biyu.png" alt="nft-biyu">
+            </figure>
+
+            <figure>
+                <img src="img/hans.png" alt="nft-hans-zimmer">
+            </figure>
+        </div>
+        <div class="trois">    
+            <figure>
+                <img src="img/eline.png" alt="nft-eline">
+            </figure>
+
+            <figure>
+                <img src="img/bitsu.png" alt="nft-bitsu">
+            </figure>
+
+            <figure>
+                <img src="img/ateyaba.png" alt="nft-ateyaba">
+            </figure>
+        </div>    
+    </section>    
+    <button class="learnmore">Voir plus</button>
+
+</div>
+<!-- footer de la page --> 
+    <footer>
+		<div class="up">
+				<img src="img/logo.png" alt="logo">
+			<h3>
+				Inscrivez-vous à notre newsletter <br>pour ne rater aucune info !
+			</h3>
+			<div class="mail">
+				<p>Votre e-mail</p>
+			</div>
+			<button>
+				S'inscrire
+			</button>
+			<ul>
+				<li><i class="fab fa-instagram"></i></li>
+				<li><i class="fab fa-twitter"></i></li>
+				<li><i class="fab fa-facebook-f"></i></li>
+				<li><i class="fab fa-discord"></i></li>
+				<li><i class="fab fa-tiktok"></i></li>
+			</ul>
+		</div>
+		<div class="down">
+			<ul>
+				<li>FAQ</li>
+				<li>Conditions d'utilisation</li>
+				<li>Politique de confidentialité</li>
+				<li>Mon compte</li>
+				<li>L'entreprise</li>
+				<li>Blog</li>
+				<li>Aide</li>
+			</ul>
+			<p>
+				©2021. NfTapes Limited Tous droits réservés
+			</p>
+		</div>
+
+	</footer>
+</body>
+</html>
