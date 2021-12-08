@@ -1,0 +1,1001 @@
+//import des variables à utiliser pour faciliter le changement des couleurs, de l'import de typographies
+@import 'variables';
+//feuille de style indispensable pour le css
+@import 'reset';
+
+
+//style de boutons à ajouter
+@mixin button($type, $backColor : $green, $txtColor : $white) {
+    color: $txtColor;
+    text-decoration: none;
+    border-radius : 4px;
+    font-weight: normal;
+    padding: 0.7rem 1.7rem;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 700;
+    
+    @if $type == 'full'{
+        background : $backColor;
+        color: $white;
+        border : 3px solid $green;
+    }
+    @if $type == "border"{
+        border : 3px solid $green;
+        background: $white;
+        color: $green;
+    }
+}
+//style de texte pour certains textes
+@mixin p{
+    font-size:1rem;
+    font-weight: 300;
+    color: $black;
+}
+//style d'icones dans le header
+@mixin icon { 
+    font-size: 1.5rem;
+}
+//style de sous-titres (h2)
+@mixin desc{
+    font-size : 1.7rem;
+    margin-bottom: 70px;
+    line-height: 30px;
+    font-weight: 300;
+    text-align: center;
+    color: $desc;
+}
+//style d'icones dans le reste des pages
+@mixin icons{
+    background-color: $green;
+    border-radius: 100%;
+    color: $chf;
+    display: inline-block;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    text-align: center;
+    width: 2.5rem;
+    font-size: 1.5rem;
+}
+//css de index.html
+html{
+    font-family: 'Poppins', cursive;
+    flex-direction: column;
+    
+    header{
+       
+        position: sticky;
+        top: 0;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        box-shadow: 0 7px 29px rgba($color: #000000, $alpha: 0.16);
+        padding: 1% 15%;
+        margin-bottom: 6%;
+        min-width: 100%;
+        height: auto;
+        backdrop-filter: blur(40px);
+       
+        
+        img{
+            width:75px;
+            height: 75px;
+        }
+        
+        nav{
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding-left: 8%;
+            .searchbar{
+            background: $searchbar;
+            display: flex;
+            align-items: center;
+            height: 47px;
+            width: 30%;
+            padding-left : 19px;
+            margin-right: 20px;
+            
+            border-radius: 9px;
+
+            
+            i{
+                @include icon;
+                padding-right: 10px;
+                color: $textsearchbar;
+            }
+            p{
+                @include p;
+                color: $textsearchbar;
+            }
+        }
+                
+                
+            }
+            a{
+                text-decoration: none;
+                color: $green;
+                font-weight: 600;
+                margin-right: 50px;
+                transition: all 0.2s ease-in-out;
+
+            &:last-child{
+                margin:0;
+            }
+            } 
+            a:hover{
+                text-decoration: underline;
+                color: $green;
+            }         
+        }
+        .user{
+            display: flex;
+            a{
+                text-decoration: none;
+                i{
+                    @include icon;
+                    
+                }
+                &:first-child{
+                    color: $nhover;
+                    padding-left: 20px;
+                }
+                &:nth-child(n+2){
+                    margin-left: 40px;
+                    color:$yellow;
+                }
+            }
+        }
+        
+    
+    //onglet "Tchat" fixé au menu déroulant
+   .chat{
+    background-color: $green;
+    border-radius: 100%;
+    color: $chf;
+    display: inline-block;
+    height: 4rem;
+    line-height: 4rem;
+    text-align: center;
+    width: 4rem;
+    font-size: 2rem;
+    position: fixed;
+    top: 50rem;
+    right: 2rem;
+   }
+    //regroupement du body dans des marges 
+    .global{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 15%;
+        
+        //au dessus de la ligne de flottaison
+        .intro{
+            margin-bottom: 10%;
+            display: flex;
+            flex-direction: row;
+            .left{
+                width :50%;
+                h1{
+                    font-size: 4rem;
+                    font-weight: 700;
+                    margin-bottom: 50px;
+                    line-height: 100px;
+                }
+                p{
+                    @include p;
+                    font-size : 1.7rem;
+                    margin-bottom: 70px;
+                    line-height: 30px;
+                }
+                div{
+                    display: flex;
+               
+                button{
+                    @include button ('full');
+                    &:first-child{
+                        transition: all 0.2s ease-in-out;
+                        
+                    }
+                    &:first-child:hover{
+                        @include button ('border');
+                    }
+                    &:nth-child(n+2){
+                        @include button ('border');
+                        margin-left: 20px;
+                        transition: 0.2s;
+                    }
+                    &:nth-child(n+2):hover{
+                        @include button ('full');
+                    }
+                }
+            }
+            }
+            img{
+                width: auto;
+                height: auto;
+                margin-left: 30%;
+            }
+            
+        }
+        
+        //style des chiffres des musiciens
+        .music{
+           margin-bottom: 20%;
+        h2{
+            font-size: 2.5rem;
+            text-align: center;
+            font-weight: 600;
+        }
+        .desc{
+            @include desc;
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 105px;
+        }
+        .articles{
+            display: flex;
+            justify-content: center;
+            justify-content: space-around;
+            article{
+                p{
+                    @include p;
+                    text-align: center;
+                    margin-bottom: 40px;
+                    font-weight: 500;
+                }
+                h1{
+                    font-size : 5rem;
+                    text-align: center;
+                    font-weight: 700;
+                   
+                }
+                &:first-child{
+                    h1{
+                        color: $green;
+                    }
+                }
+                &:last-child{
+                    h1{
+                        color: $yellow;
+                    }
+                 }
+                }
+            }
+        }
+        //style des étapes d'expérience utilisateur
+        .ux{
+            margin-bottom: 20%;
+            h2{
+                font-size: 2.5rem;
+                text-align: center;
+                font-weight: 600;
+            }
+            .desc{
+                @include desc;
+                text-align: center;
+                margin-top: 40px;
+                margin-bottom: 105px;
+            }
+            .articles{
+                display: flex;
+                justify-content: center;
+                justify-content: space-between;
+                align-items: baseline;
+                article{
+                    width: 20%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    text-align: center;
+                    img{
+                        width: 200px;
+                        box-shadow: 0 0 47px rgba($color: #000000, $alpha: 0.16);
+                        height: auto;
+                        display: block;
+                        margin: auto;  
+                        margin-bottom: 50px;
+                        border-radius :23px !important;
+                    }
+                    h3{
+                        font-size: 1.4rem;
+                        font-weight: 600;
+                        text-align: center;
+                        margin-bottom: 20px;
+                    }
+                    p{
+                        @include p;
+                        text-align: center;
+                        font-size: 1.1rem;
+                    }
+                     &:first-child{
+                    img{
+                        box-shadow: none;
+                    }
+                    
+                }
+                }
+               
+            }
+        }
+        //style des informations des transactions
+        .transactions {
+            display: flex;
+            margin-bottom: 20%;
+            justify-content: space-between;
+           
+            div{
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+                width : 45%;
+                order:-1;
+                
+                h2{
+                    font-size: 2.5rem;
+                    text-align: right;
+                    font-weight: 600;
+                    margin-bottom: 18%;
+                    }
+                p{
+                    @include desc;
+                    text-align: right;
+                    margin-bottom: 21%;
+
+                }
+                button{
+                    @include button ('full');
+                    width: 100%;
+                    transition: all 0.2s ease-in-out;
+                }
+                button:hover{
+                    @include button ('border');
+                }
+            }
+            
+            img {
+                width : 484px;
+                height: auto;
+                border-radius: 100%;
+                box-shadow: 0 0 47px rgba($color: #000000, $alpha: 0.16);
+            }
+        }
+        //style de la redirection vers la marketplace
+        .marketplace {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20%;
+            img {
+                width : 484px;
+                height: auto;
+                border-radius: 100%;
+                box-shadow: 0 0 47px rgba($color: #000000, $alpha: 0.16);
+            }
+            div{
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+                width : 45%;
+                
+                h2{
+                    font-size: 2.5rem;
+                    text-align: left;
+                    font-weight: 600;
+                    margin-bottom: 18%;
+                    }
+                p{
+                    @include desc;
+                    text-align: left;
+                    margin-bottom: 21%;
+
+                }
+                button{
+                    @include button ('full');
+                    width: 100%;
+                    transition: all 0.2s ease-in-out;
+                }
+                button:hover{
+                    @include button ('border');
+                }
+            }
+            
+          
+        }
+        //style des articles
+        .news{
+            display: flex;
+            flex-direction: column;
+            
+            h2{
+                font-size: 2.5rem;
+                text-align: center;
+                font-weight: 600;
+                margin-bottom : 8%;
+            }
+            
+            .articles{
+                display: flex;
+                margin-bottom: 5%;
+                justify-content: space-between;
+                align-items: baseline;
+                article{
+                    display: flex;
+                    flex-direction:column;
+                    width:25%;
+                    box-shadow: 0 0 47px rgba($color: #000000, $alpha: 0.16);
+                    background :$chf;
+                    border-radius: 30px;
+                    
+                    
+                    img{
+                        width: 100%;
+                        height: auto;
+                        border-radius: 30px 30px 0 0;
+                    }    
+                    h4{
+                        color: $textag;
+                        padding: 5%;
+                    }
+                    h3{
+                        font-size: 1.2rem;
+                        color: $green;
+                        font-weight: 500;
+                        padding: 0 5%;
+                    }
+                    p{
+                        @include p;
+                        color : $desc;
+                        padding: 5%;
+                    }
+                    button{
+                        @include button('full');
+                        
+                        height: auto;
+                        display: block;
+                        margin: auto;
+                        margin-bottom: 10%;
+                        margin-top : 5%;
+                        transition: all 0.2s ease-in-out;
+                    }
+                    button:hover{
+                        @include button ('border');
+                    }
+                }
+            }
+            .blog{
+                display :block;
+                margin: auto;
+                @include button('full');
+                transition: all 0.2s ease-in-out;
+            }
+            .blog:hover{
+                @include button ('border');
+            }
+        }
+        
+        
+    }
+    //style des chiffres nfts
+    .chiffres{
+        background : $chf;
+        display: flex;
+        flex-direction: row;
+        padding: 3% 15% ;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15%;
+        p{
+            @include desc;
+            margin: 0;
+            color: black;
+            width: 25%;
+            height: auto;
+            line-height: 50px;
+            
+            &:first-child{
+                text-align: left;
+            }
+            &:last-child{
+                text-align: right;
+            }
+            span{
+                font-weight: 500;
+                color: $green;
+                font-size: 2rem;
+            }
+        }
+    }
+    //style du footer
+    footer{
+        background :$chf;
+        padding : 0 15% 2% 15% ;
+        margin-top: 10%;
+        .up{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom : 27px;
+            img{
+                width: 20%;
+                height: auto;
+            }
+            h3{
+                font-size: 1rem;
+                font-weight: 600;
+                color : $green;
+                width :auto;
+                line-height: 20px;
+            }
+            div{
+                background: $white;
+                border-radius: 4px;
+                width : 15%;
+                height: 50px;
+                display: flex;
+                align-items: center;
+                p{
+                    color: $textsearchbar;
+                    padding-left: 5%;   
+                }
+            }
+            button{
+                @include button('full');
+                transition: all 0.2s ease-in-out;
+            }
+            button:hover{
+                @include button ('border');
+            }
+            ul{
+                display: flex;
+                li{
+                   @include icons;
+                   margin-right : 10px;
+                   transition: all 0.2s ease-in-out;
+                   &:last-child{
+                       margin: 0;
+                   }
+                }
+                li:hover{
+                    color:$green;
+                    background: $chf;
+                    border: 2px solid $green;
+                }
+            }
+        }
+        .down{
+            display: flex;
+            justify-content: space-between;
+            
+            ul{
+                display: flex;
+                li{
+                    color:$green;
+                    font-weight: 500;
+                    margin-right: 20px;
+                    &:last-child{
+                        margin : 0;
+                    }
+                }
+            }
+            p{
+                color: $textag;
+            }
+        }
+    }
+}
+
+//responsives de index.html
+@media screen and (max-width : 1320px) {
+    .global{
+        .intro{
+            h1{
+                font-size : 3rem !important;
+                line-height: 30px;
+                text-align: center;
+            }
+            p{
+                text-align: center;
+            }
+            div{
+                flex-direction: column;
+                min-width: 100%;
+                
+                a{
+                    margin-bottom: 20px;
+                    
+               }
+                button{
+                    min-width: 100%;
+                    
+                    &:last-child{
+                        margin:0 !important;
+                    }
+                }
+             
+            }
+            .left{
+                width: 100% !important;
+            }
+            figure{
+                width: 0% !important;
+                display:none;
+            }
+        }
+          
+        .transactions, .marketplace{
+            flex-direction: column;
+            display: flex;
+            width: 100% !important;
+            display: block;
+            margin:auto;
+            margin-bottom: 100px;
+            div{
+                
+                
+                min-width: 100%;
+                h2, p{
+                    text-align: center !important;
+                    margin-bottom: 40px !important;
+                }
+                h2{
+                    margin-top: 20px;
+                }
+            }
+            figure{
+    
+                img{
+                width: 282px;
+                display: block !important;
+                margin: auto !important;
+                
+                
+            }
+            }
+            
+        }
+        .transactions{
+            div{
+                order:1 !important;
+            }
+        }
+       
+      
+    }
+    footer{
+        .up{
+            flex-direction: column;
+            justify-content: space-between;
+            ul{
+                order: -1;
+                margin-bottom: 30px;
+            }
+            img{
+                order: -2;
+                min-width: 300px;
+                margin-bottom: 30px;
+            }
+            h3{
+                min-width: 100%;
+                text-align: center;
+                margin-bottom: 30px;
+
+            }
+            div, button{
+                margin-bottom: 30px;
+                min-width: 40%;
+            }
+        }
+        .down{
+            flex-direction: column;
+            ul{
+                flex-direction: column;
+                min-width: 100%;
+                margin-bottom:30px;
+               li{ 
+                   text-align: center ;
+                   margin-bottom:20px;
+                   margin-right: 0 !important;
+               }  
+            }
+            p{
+                text-align: center;
+            }
+        }
+    }
+}
+//responsives de index.html
+@media screen and (max-width : 1000px){
+    .global{
+        .ux{
+            .articles{
+                flex-direction: column;
+                min-width: 100%;
+
+                article{
+                    min-width: 100%;
+                    margin-bottom: 100px;
+                }
+            }
+        }
+        .news{
+            min-width: 100%;
+            
+            .articles{
+                flex-direction: column !important;
+                min-width: 100% ; 
+                article{
+                    min-width: 70% ;
+                    text-align: center;
+                    display: block;
+                    margin: auto;
+                    margin-bottom: 40px;
+                }
+            }
+        }
+        
+    }
+    .chiffres{
+            flex-direction: column !important;
+            
+            
+            p{
+                min-width: 100%;
+                text-align: center !important;
+                margin-bottom: 50px !important;
+            }
+        }
+}
+//responsives de index.html
+@media screen and (max-width : 750px){
+    .global{
+        .intro{
+            margin-bottom: 110px !important;
+            
+        }
+        .music{
+            .articles{
+                flex-direction: column;
+                article:first-child{
+                    margin-bottom: 50px
+                }
+            }
+        }
+    }
+    .chiffres{
+        p{
+            font-size: 1.3rem !important;
+        }
+    }
+}
+//responsives de index.html
+@media screen and (min-width: 0px) and (max-width : 460px){
+    .global{
+        .intro{
+            h1{
+                font-size:2rem !important;
+                line-height: 50px !important;
+            }
+            p{
+                font-size: 1.3rem !important;
+            }
+        }
+        .news{
+            article{
+                min-width: 100% !important;
+            }
+        }
+        h2{
+            font-size:1.7rem !important;
+                line-height: 50px !important;
+        }
+        .desc{
+            font-size: 1.3rem !important;
+        }
+    }
+    footer{
+        .mail{
+            width: 100% !important;
+        }
+    }
+    
+}
+
+//css de marketplace.html
+
+.mkp{
+    padding: 0 15%;
+    //style du fil d'ariane
+    .fil{
+        font-weight: 600;
+        color: $green;
+        text-decoration: none !important;
+        margin-bottom: 30px;
+    }
+    h1{
+        font-size : 2rem;
+        font-weight: 600;
+        margin-bottom: 30px;
+    }
+    //style des tris et filtres
+    .upp{
+        margin-bottom: 100px;
+        .filtre{
+            margin-bottom:30px;
+            p{
+                font-weight: 600;
+                color: $green;
+                margin-bottom: 20px;
+            }
+            .container{
+                display: flex;
+                .min, .max{
+                    padding: 0.5% 9% 0.5% 1%;
+                    background: $searchbar;
+                    border-radius : 9px;
+                    margin-right : 20px;
+                    p{
+                        font-weight: 300;
+                        color: $textsearchbar;
+                        margin-bottom: 0;
+                        text-align: left;
+                        line-height: 2rem;
+                    }
+                }
+                
+                button{
+                    color: $white;
+                    text-decoration: none;
+                    border-radius : 9px;
+                    font-weight: normal;
+                    padding: 0.5% 5%;
+                    text-align: center;
+                    font-size: 1.1rem;
+                    font-weight: 700;
+                    background : $green;
+                    color: $white;
+                    border : 3px solid $green;
+                    transition: all 0.2s ease-in-out;
+                }
+                button:hover{
+                    background: $white;
+                    color : $green;
+                }
+        }
+    }
+        .tri{
+            p{
+                font-weight: 600;
+                color: $green;
+                margin-bottom: 20px;
+            }
+            .container{
+                display: flex;
+                .artiste{
+                    padding: 0.5% 9% 0.5% 1%;
+                    background: $searchbar;
+                    border-radius : 9px;
+                    margin-right : 20px;
+                    display: flex;
+                    align-items: center;
+                    p{
+                        font-weight: 300;
+                        color: $textsearchbar;
+                        margin-bottom: 0;
+                        text-align: left;
+                        line-height: 2rem;
+                    }
+                }
+                .style{
+                    padding: 0.5% 2% 0.5% 1%;
+                    background: $searchbar;
+                    border-radius : 9px;
+                    margin-right : 20px;
+                    display: flex;
+                    align-items: center;
+                    p{
+                        font-weight: 300;
+                        color: $green;
+                        margin-bottom: 0;
+                        text-align: left;
+                        line-height: 2rem;
+                        margin-right: 60px;
+                    }
+                    i{
+                        color: $green;
+                    }
+                }
+                .date{
+                    padding: 0.5% 2% 0.5% 1%;
+                    background: $searchbar;
+                    border-radius : 9px;
+                    margin-right : 20px;
+                    display: flex;
+                    align-items: center;
+                    p{
+                        font-weight: 300;
+                        color: $green;
+                        margin-bottom: 0;
+                        text-align: left;
+                        line-height: 2rem;
+                        margin-right: 60px;
+                    }
+                    i{
+                        color: $green;
+                    }
+                }
+                button{
+                    color: $white;
+                    text-decoration: none;
+                    border-radius : 9px;
+                    font-weight: normal;
+                    padding: 0.5% 5%;
+                    text-align: center;
+                    font-size: 1.1rem;
+                    font-weight: 700;
+                    background : $green;
+                    color: $white;
+                    border : 3px solid $green;
+                    transition: all 0.2s ease-in-out;
+                }
+                button:hover{
+                    background: $white;
+                    color : $green;
+                }
+        }
+     }
+    }
+    h2{
+        color: $textsearchbar;
+        font-size: 1.5rem;
+        margin-bottom: 40px;
+    }
+    //style des nfts
+    .nfts{
+        margin-bottom: 30px;
+        .un, .deux, .trois{
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            margin-bottom: 90px;
+        }
+    }
+    .learnmore{
+        @include button('full');
+        display: block;
+        margin:auto;
+    }
+  
+}
+
+//responsive de marketplace.html
+@media screen and (max-width: 1000px){
+    .mkp{
+        .container{
+            flex-direction: column;
+            min-width: 100%;
+            div{
+                margin:0 !important;
+                margin-bottom: 30px !important;
+            }   
+        }
+        .nfts{
+            
+        .un, .deux, .trois{
+                flex-direction: column !important;
+                min-width: 100% ;
+                margin-bottom: 0 !important;
+            img{
+                width: 70% !important;
+                 display: block !important;
+                margin:auto !important; 
+                margin-bottom: 40px !important;
+            }
+               
+            }
+        }
+    }
+}
+

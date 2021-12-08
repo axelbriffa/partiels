@@ -1,0 +1,58 @@
+//variables de couleurs
+
+$nhover : #26724E;
+$green : #3aab75;
+$searchbar : #F1F1F1;
+$textsearchbar : #bebebe;
+$textag : #747474;
+$euro : #acacac;
+$yellow: #d2c35e;
+$black : #000;
+$white : #fff;
+$desc : #707070;
+$chf : #f0f0f0;
+
+
+//import des fonts
+
+@font-face {
+    font-family: 'Poppins';
+    src: url(../webfonts/Poppins-Light.woff) format("woff"),
+    url(../webfonts/Poppins-Light.woff) format("woff2");
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url(../webfonts/Poppins-Regular.woff) format("woff"),
+    url(../webfonts/Poppins-Regular.woff) format("woff2");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url(../webfonts/Poppins-Medium.woff) format("woff"),
+    url(../webfonts/Poppins-Medium.woff) format("woff2");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url(../webfonts/Poppins-SemiBold.woff) format("woff"),
+    url(../webfonts/Poppins-SemiBold.woff) format("woff2");
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url(../webfonts/Poppins-SemiBoldItalic.woff) format("woff"),
+    url(../webfonts/Poppins-SemiBoldItalic.woff) format("woff2");
+    font-weight: 650;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url(../webfonts/Poppins-Bold.woff) format("woff"),
+    url(../webfonts/Poppins-Bold.woff) format("woff2");
+    font-weight: 700;
+}
